@@ -30,6 +30,7 @@ import {Form} from "../../src/view/elements/Form.js"
       card_display,
       mini_tree: true,
       link_break: false,
+      view_only: false,
       cardEditForm,
       addRelative: f3.handlers.AddRelative({store, cont, card_dim, cardEditForm, labels: {mother: 'Add mother'}}),
     }),

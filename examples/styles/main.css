@@ -67,11 +67,11 @@ g.card_add text {
 }
 
 /* pencil_icon element */
-.card_edit.pencil_icon {
+.card_edit.pencil_icon, .card_edit.eye_icon {
   color: #fff;
   transition: .3s;
 }
-.card_edit.pencil_icon:hover {
+.card_edit.pencil_icon:hover, .card_edit.eye_icon:hover {
   color: black;
 }
 

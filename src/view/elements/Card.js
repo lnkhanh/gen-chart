@@ -5,7 +5,8 @@ import {
   CardImage,
   LinkBreakIconWrapper,
   MiniTree, PencilIcon,
-  PlusIcon
+  PlusIcon,
+  EyeIcon
 } from "./Card.Elements.js"
 import {cardChangeMain, cardEdit, cardShowHideRels} from "../../handlers/cardMethods.js"
 import {isAllRelativeDisplayed} from "../../handlers/general.js"
@@ -19,6 +20,7 @@ export function Card(props) {
     const el = document.createElementNS("http://www.w3.org/2000/svg", 'g'),
       gender_class = d.data.data.gender === 'M' ? 'card-male' : d.data.data.gender === 'F' ? 'card-female' : 'card-genderless',
       card_dim = props.card_dim,
+      view_only = props.view_only,
       show_mini_tree = !isAllRelativeDisplayed(d, store.state.tree.data),
       unknown_lbl = props.cardEditForm ? '+' : 'UNKNOWN',
 
@@ -26,8 +28,8 @@ export function Card(props) {
       card_body_outline = () => CardBodyOutline({d,card_dim,is_new:d.data.to_add}).template,
       card_body = () => !d.data.to_add ? CardBody({d,card_dim, card_display: props.card_display}).template : CardBodyAddNew({d,card_dim, card_add: props.cardEditForm, label: unknown_lbl}).template,
       card_image = () => !d.data.to_add ? CardImage({d, image: d.data.data.avatar || null, card_dim, maleIcon: null, femaleIcon: null}).template : '',
-      edit_icon = () => !d.data.to_add && props.cardEditForm ? PencilIcon({card_dim, x: card_dim.w-46, y: card_dim.h-20}).template : '',
-      add_icon = () => !d.data.to_add && props.cardEditForm ? PlusIcon({card_dim, x: card_dim.w-26, y: card_dim.h-20}).template : '',
+      edit_icon = () => !view_only ? (!d.data.to_add && props.cardEditForm ? PencilIcon({card_dim, x: card_dim.w-46, y: card_dim.h-20}).template : '') : EyeIcon({card_dim, x: card_dim.w-26, y: card_dim.h-24}),
+      add_icon = () => !view_only ? (!d.data.to_add && props.cardEditForm ? PlusIcon({card_dim, x: card_dim.w-26, y: card_dim.h-20}).template : '') : '',
       link_break_icon = () => LinkBreakIconWrapper({d,card_dim})
 
     el.innerHTML = (`

@@ -1,18 +1,18 @@
 {
   "name": "gen-chart",
-  "version": "1.0.2",
-  "description": "https://totien.net",
+  "version": "1.0.3",
+  "description": "https://goweddy.net",
   "keywords": [
     "datafull",
     "gen-chart",
     "family tree",
     "d3"
   ],
-  "homepage": "https://totien.net",
+  "homepage": "https://goweddy.net",
   "license": "ISC",
   "author": {
     "name": "Khanh Luong",
-    "url": "https://www.linkedin.com/in/donat-sori%C4%87-342a92161/"
+    "url": "https://goweddy.net"
   },
   "main": "dist/gen-chart.js",
   "unpkg": "dist/gen-chart.min.js",
